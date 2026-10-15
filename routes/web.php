@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Aula;
+use App\Http\Controllers\AulaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('otra');
 });
+
+//Route::get('/decir/',[Aula::class,'saludar']);
+
+Route::get('preagregar',[AulaController::class, 'create'])->name('aulas.agregar');
+Route::get('seleccionar/{x}' ,[AulaController::class, 'edit'])->name('aulas.actualizar');
+
+Route::post('agregar/',[AulaController::class, 'store']);
+Route::get('listar',[AulaController::class, 'index']);
+Route::get('unoporuno/{x}',[AulaController::class, 'show']);
+route::put('actualiza/{x}',[AulaController::class, 'update']);
+route::delete('borrar/{x}',[AulaController::class, 'destroy'])->name('aulas.borrar');
+
+
+Route::get('aulas' ,[AulaController::class, 'index'])->name('aulas.listar');
