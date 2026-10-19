@@ -2,6 +2,7 @@
 
 use App\Models\Aula;
 use App\Http\Controllers\AulaController;
+use App\Http\Controllers\MesaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,4 @@ Route::get('unoporuno/{x}',[AulaController::class, 'show']);
 route::put('actualiza/{x}',[AulaController::class, 'update']);
 route::delete('borrar/{x}',[AulaController::class, 'destroy'])->name('aulas.borrar');
 
-
-Route::get('aulas' ,[AulaController::class, 'index'])->name('aulas.listar');
+Route::resource('mesas',MesaController::class);
