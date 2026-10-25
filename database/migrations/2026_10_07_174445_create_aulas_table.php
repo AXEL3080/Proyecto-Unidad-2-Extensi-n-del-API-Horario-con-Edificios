@@ -6,23 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('aulas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->integer('capacidad');
-            $table->boolean('wifi');
+            
+            // Relación de llave foránea con la tabla edificios
+            $table->foreignId('edificio_id')
+                  ->constrained('edificios')
+                  ->onDelete('cascade');
+                  
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('aulas');
