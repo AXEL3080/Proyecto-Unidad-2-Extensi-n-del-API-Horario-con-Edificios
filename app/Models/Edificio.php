@@ -11,8 +11,8 @@ class Edificio extends Model
 
     protected $fillable = ['nombre'];
 
-    public function aulas()
-    {
+    public function aulas() 
+      {
         return $this->hasMany(Aula::class);
     }
 }
